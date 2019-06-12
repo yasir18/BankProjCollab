@@ -1,0 +1,11 @@
+C:\Users\soma yeshwanth\Documents\Visual Studio 2015\Projects\BankProj\WcfService\bin\WcfService.dll.config
+C:\Users\soma yeshwanth\Documents\Visual Studio 2015\Projects\BankProj\WcfService\bin\WcfService.dll
+C:\Users\soma yeshwanth\Documents\Visual Studio 2015\Projects\BankProj\WcfService\bin\WcfService.pdb
+C:\Users\soma yeshwanth\Documents\Visual Studio 2015\Projects\BankProj\WcfService\obj\Debug\WcfService.dll
+C:\Users\soma yeshwanth\Documents\Visual Studio 2015\Projects\BankProj\WcfService\obj\Debug\WcfService.pdb
+C:\Users\YA185024\Desktop\bankcollab\WcfService\bin\WcfService.dll.config
+C:\Users\YA185024\Desktop\bankcollab\WcfService\bin\WcfService.dll
+C:\Users\YA185024\Desktop\bankcollab\WcfService\bin\WcfService.pdb
+C:\Users\YA185024\Desktop\bankcollab\WcfService\obj\Debug\WcfService.csprojResolveAssemblyReference.cache
+C:\Users\YA185024\Desktop\bankcollab\WcfService\obj\Debug\WcfService.dll
+C:\Users\YA185024\Desktop\bankcollab\WcfService\obj\Debug\WcfService.pdb

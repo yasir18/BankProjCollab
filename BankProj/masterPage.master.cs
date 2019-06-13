@@ -118,7 +118,7 @@ public partial class Master : System.Web.UI.MasterPage
     {
         if (Session["role"].ToString() == "Manager")
         {
-            Response.Redirect("CustomerMaster.aspx");
+            Response.Redirect("ManageCustomerMaster.aspx");
         }
         else
         {

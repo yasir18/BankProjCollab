@@ -8,7 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BankProj(1)", "http://localhost:55491", "{FE6FA07E-7D6C-48BB-B93D-2047AE64E3E9}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_55491"
 		Debug.AspNetCompiler.PhysicalPath = "BankProj\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55491\"

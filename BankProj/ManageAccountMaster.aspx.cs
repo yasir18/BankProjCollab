@@ -50,8 +50,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
      the corresponding customer Id is displayed by recieving a DataSet and filling the GridView*/
     protected void SubmitButton_Click(object sender, EventArgs e)
     {
-        try
-        {
+  
             ServiceReference1.Service1Client sc = new ServiceReference1.Service1Client();
             IList<Account> aobj = sc.GetCustomerId(int.Parse(CustomerIdTextBox.Text));
             int rows = aobj.Count;
@@ -65,16 +64,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
                 DeleteButton.Visible = false;
 
             }
-            else if (int.Parse(aobj[0].customerId.ToString())== int.Parse(CustomerIdTextBox.Text))
-            {
-                Label2.Text = "Customer Already exists!! Add a New Account";
-                AddButton.Visible = true;
-                EditButton.Visible = false;
-                DeleteButton.Visible = false;
-
-
-            }
-            else
+            else if (int.Parse(aobj[0].customerId.ToString())== int.Parse(CustomerIdTextBox.Text.ToString()) && aobj[0].accountNo!=0)
             {
                 Label2.Text = "Accounts available are";
                 GridView1.DataSource = aobj;
@@ -82,14 +72,19 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
                 AddButton.Visible = true;
                 EditButton.Visible = true;
                 DeleteButton.Visible = true;
+                
+
 
             }
-        }
-        catch(Exception exc)
-        {
-            Label3.Text = "Enter valid Details!!";
-        }
+            else
+            {
+                Label2.Text = "Customer Already exists!! Add a New Account";
+                AddButton.Visible = true;
+                EditButton.Visible = false;
+                DeleteButton.Visible = false;
 
+            }
+        
 
     }
 

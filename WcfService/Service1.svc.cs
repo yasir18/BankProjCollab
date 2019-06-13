@@ -698,7 +698,11 @@ namespace WcfService
                 DataSet ds2 = new DataSet();
                 sda2.Fill(ds2);
                 Account obj = new Account();
-                obj.customerId = int.Parse(ds.Tables[0].Rows[0]["customerId"].ToString());
+                try
+                {
+                    obj.customerId = int.Parse(ds2.Tables[0].Rows[0]["customerId"].ToString());
+                }
+                catch { return aobj; }
 
                 aobj.Add(obj);
                 return aobj;

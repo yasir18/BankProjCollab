@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masterPage.master" AutoEventWireup="true" CodeFile="AddCustomerMaster.aspx.cs" Inherits="_AddCustomerMaster" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+    <script src="Scripts/jquery-1.10.2.min.js"></script>  
+    <script src="Scripts/jquery.validate.min.js"></script>  
         <div>
         <table style="width:100%;" id="addCustomerForm" runat="server">
 <tr>

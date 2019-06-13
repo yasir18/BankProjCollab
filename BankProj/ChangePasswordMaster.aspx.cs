@@ -13,6 +13,7 @@ public partial class _changePasswordwordMaster : System.Web.UI.Page
         {
             Response.Redirect("LoginPageMaster.aspx");
         }
+        Master.HeaderAccountLabel.Text = Session["accountNo"].ToString();
     }
 
     protected void submit_Click(object sender, EventArgs e)

@@ -1,8 +1,33 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masterPage.master" AutoEventWireup="true" CodeFile="AddCustomerMaster.aspx.cs" Inherits="_AddCustomerMaster" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
-    <script src="Scripts/jquery-1.10.2.min.js"></script>  
-    <script src="Scripts/jquery.validate.min.js"></script>  
+    <!--include jQuery -->  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+        type="text/javascript"></script>   
+<!--include jQuery Validation Plugin-->  
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
+        type="text/javascript"></script> 
+
+
+    <script type ="text/javascript" >
+        $(document).ready(function () {
+            $("#addCustomerForm").validate({
+                rules: {
+                    //This section we need to place our custom rule for the control. 
+                    <%=custName1.UniqueID %>:{  
+                        required:true  
+                    } 
+                },
+                messages: {
+                    //This section we need to place our custom validation message for each control.  
+
+                },
+            });
+        });
+
+ </script> 
+
+
         <div>
         <table style="width:100%;" id="addCustomerForm" runat="server">
 <tr>
@@ -10,7 +35,7 @@
                     <asp:Label ID="nameLabel" runat="server" Text="Name: "></asp:Label>
                 </td>
                 <td><asp:TextBox ID="custName1" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="custName1" ErrorMessage="Required"></asp:RequiredFieldValidator>
+                    
                 </td>
             </tr>
             <tr>

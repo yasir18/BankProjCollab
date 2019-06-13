@@ -106,6 +106,32 @@ namespace WcfService
             conn.Close();
             return rows_affected;
         }
+
+
+        public string getCustomerName(string userId)
+        {
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            string sql = "getCustomerName";
+            SqlCommand command = new SqlCommand(sql, con);
+            SqlParameter param1 = new SqlParameter("@uid", userId);
+            command.Parameters.Add(param1);
+
+            command.CommandType = CommandType.StoredProcedure;
+            SqlDataReader dr = command.ExecuteReader();
+            string customerName;
+            if (dr.Read())
+            {
+                customerName = dr.GetString(0);
+            }
+            else
+            {
+                customerName = "Error";
+            }
+            return customerName;
+        }
+
+
         public List<customer> getSpecificCustomer(int custId)
         {
             

@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masterPage.master" AutoEventWireup="true" CodeFile="balanceEnquiryMaster.aspx.cs" Inherits="_Default" %>
-
+<%@ MasterType VirtualPath="~/masterPage.master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <asp:Label ID="AccountNO" runat="server" Text="AccountNO"></asp:Label>
     :&nbsp;&nbsp;

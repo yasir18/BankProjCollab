@@ -12,11 +12,12 @@ public partial class _Customermaster : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["role"].ToString() =="Customer")
+        if (Session["role"].ToString() == "Customer")
         {
             Role.Text = Session["role"].ToString();
             ServiceReference1.Service1Client obj = new ServiceReference1.Service1Client();
             string id = Session["userId"].ToString();
+            //string customerName = obj.getCustomerName(id);
             //var v = obj.accountFromCustomer(id);
             //obj.
             //SqlDataReader dr = v;
@@ -24,10 +25,12 @@ public partial class _Customermaster : System.Web.UI.Page
             Master.FindControl("MasterButton2").Visible = false;
             Master.FindControl("MasterButton3").Visible = false;
             Master.FindControl("MasterButton4").Visible = false;
-            IList<Account>aobj= obj.accountFromCustomer(id);
+            Master.FindControl("MasterButton5").Visible = false;
+            // ((System.Web.UI.WebControls.Label)(Master.FindControl("HeaderName"))).Text = customerName;
+            IList<Account> aobj = obj.accountFromCustomer(id);
 
-           
-            if (aobj.Count!=0)
+
+            if (aobj.Count != 0)
             {
                 GridView1.DataSource = aobj;
                 GridView1.DataBind();
@@ -47,14 +50,11 @@ public partial class _Customermaster : System.Web.UI.Page
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        
+
 
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("CustomStatementMaster.aspx");
-    }
+
 
     protected void Button2_Click(object sender, EventArgs e)
     {

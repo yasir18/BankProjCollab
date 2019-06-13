@@ -55,6 +55,9 @@ namespace WcfService
         List<Account> GetCustomerId(int customerEnteredId);
 
         [OperationContract]
+        string getCustomerName(string userId);
+
+        [OperationContract]
         bool AddAccount(string[] d);
 
         [OperationContract]

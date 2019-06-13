@@ -15,3 +15,8 @@ C:\Users\vp185149\Downloads\BankProjCollab-master\WcfService\bin\WcfService.pdb
 C:\Users\vp185149\Downloads\BankProjCollab-master\WcfService\obj\Debug\WcfService.dll
 C:\Users\vp185149\Downloads\BankProjCollab-master\WcfService\obj\Debug\WcfService.pdb
 C:\Users\vp185149\Downloads\BankProjCollab-master\WcfService\obj\Debug\WcfService.csprojResolveAssemblyReference.cache
+C:\Users\YA185024\Desktop\BankProjCollab\WcfService\bin\WcfService.dll.config
+C:\Users\YA185024\Desktop\BankProjCollab\WcfService\bin\WcfService.dll
+C:\Users\YA185024\Desktop\BankProjCollab\WcfService\bin\WcfService.pdb
+C:\Users\YA185024\Desktop\BankProjCollab\WcfService\obj\Debug\WcfService.dll
+C:\Users\YA185024\Desktop\BankProjCollab\WcfService\obj\Debug\WcfService.pdb

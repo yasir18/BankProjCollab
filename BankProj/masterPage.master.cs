@@ -9,20 +9,22 @@ public partial class Master : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        ServiceReference1.Service1Client sc = new ServiceReference1.Service1Client();
 
+
+        ServiceReference1.Service1Client sc = new ServiceReference1.Service1Client();
         string loginstatus = null;
+
         if (Session["Role"] != null)
         {
             string sessionstatus = Session["Role"].ToString();
-            
+
             if (sessionstatus != null)
                 loginstatus = "Logout";
         }
         else
         {
             loginstatus = "Login";
-            
+
         }
         Button2.Text = loginstatus;
         if (Session["role"] == null)
@@ -31,35 +33,49 @@ public partial class Master : System.Web.UI.MasterPage
             MasterButton2.Visible = false;
             MasterButton3.Visible = false;
             MasterButton4.Visible = false;
+            MasterButton5.Visible = false;
             Button1.Visible = false;
             Button2.Visible = false;
-            
+
 
         }
-        else if(Session["role"].ToString()=="Customer")
+        else if (Session["role"].ToString() == "Customer")
         {
             MasterButton1.Text = "Fund Transfer";
             MasterButton2.Text = "MiniStatement";
             MasterButton3.Text = "Change Password";
             MasterButton4.Text = "Balance Enquiry";
-          //  HeaderName.Text = sc.getCustomerName(Session["userId"].ToString());
+            MasterButton5.Text = "Custom Statement";
+            HeaderName.Text = sc.getCustomerName(Session["userId"].ToString());
+
 
         }
-        else if(Session["role"].ToString() == "Manager")
+        else if (Session["role"].ToString() == "Manager")
         {
             MasterButton1.Text = "Withdrawal";
             MasterButton2.Text = "Deposit";
             MasterButton3.Text = "Customer";
             MasterButton4.Text = "Account";
+            MasterButton5.Visible = false;
             HeaderName.Text = Session["userId"].ToString();
 
         }
         else
         {
-            
+
         }
-       
+
     }
+
+    public Label HeaderAccountLabel
+    {
+        get
+        {
+            return this.HeaderAccountNo;
+        }
+
+    }
+
 
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -83,14 +99,14 @@ public partial class Master : System.Web.UI.MasterPage
         Session.Clear();
         Session.Abandon();
         Response.Redirect("LoginPageMaster.aspx");
-        
+
     }
 
-   
+
 
     protected void MasterButton1_Click(object sender, EventArgs e)
     {
-        if(Session["role"].ToString()=="Manager")
+        if (Session["role"].ToString() == "Manager")
         {
             Response.Redirect("WithdrawMaster.aspx");
         }
@@ -136,5 +152,10 @@ public partial class Master : System.Web.UI.MasterPage
         {
             Response.Redirect("BalanceEnquiryMaster.aspx");
         }
+    }
+
+    protected void MasterButton5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CustomStatementMaster.aspx");
     }
 }

@@ -22,6 +22,7 @@ public partial class _CustomStatementGridMaster : System.Web.UI.Page
             {
                 ServiceReference1.Service1Client obj = new ServiceReference1.Service1Client();
                 int acc = int.Parse(Session["accountNo"].ToString());
+                Master.HeaderAccountLabel.Text = Session["accountNo"].ToString();
                 DateTime start = DateTime.Parse(Session["startdate"].ToString());
                 DateTime end = DateTime.Parse(Session["enddate"].ToString());
 

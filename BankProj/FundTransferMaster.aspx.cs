@@ -17,6 +17,7 @@ public partial class _FundTransferMaster : System.Web.UI.Page
         else
         {
             account1.Text = Session["accountNo"].ToString();
+            Master.HeaderAccountLabel.Text = Session["accountNo"].ToString();
         }
     }
 
@@ -60,7 +61,8 @@ public partial class _FundTransferMaster : System.Web.UI.Page
             }
         }
 
-        catch (Exception exp) {
+        catch (Exception exp)
+        {
             Label6.Text = "Enter valid details!!";
         }
     }

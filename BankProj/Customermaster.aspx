@@ -6,17 +6,17 @@
         function RadioCheck(rb) {
 
             var gv = document.getElementById("<%=GridView1.ClientID%>");
-         var rbs = gv.getElementsByTagName("input");
-         var row = rb.parentNode.parentNode;
-         for (var i = 0; i < rbs.length; i++) {
-             if (rbs[i].type == "radio") {
-                 if (rbs[i].checked && rbs[i] != rb) {
-                     rbs[i].checked = false;
-                     break;
-                 }
-             }
-         }
-     }
+            var rbs = gv.getElementsByTagName("input");
+            var row = rb.parentNode.parentNode;
+            for (var i = 0; i < rbs.length; i++) {
+                if (rbs[i].type == "radio") {
+                    if (rbs[i].checked && rbs[i] != rb) {
+                        rbs[i].checked = false;
+                        break;
+                    }
+                }
+            }
+        }
 
     </script>
     
@@ -52,7 +52,6 @@
         <asp:Label ID="ErrorMsg" runat="server"></asp:Label>
         <br />
         <br />
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Custom Statement" />
     
         <br />
     

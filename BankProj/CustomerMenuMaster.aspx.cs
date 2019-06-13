@@ -9,7 +9,7 @@ public partial class _CustomerMenuMaster : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
         if (Session["role"].ToString() != "Customer")
         {
             Response.Redirect("LoginPageMaster.aspx");
@@ -17,12 +17,14 @@ public partial class _CustomerMenuMaster : System.Web.UI.Page
         else
         {
             account.Text = Session["accountNo"].ToString();
-          //  Master.FindControl("HeaderName").Text = S;
+            // ((System.Web.UI.WebControls.Label)(Master.FindControl("HeaderAccountNo"))).Text = Session["accountNo"].ToString();
+            //  Master.FindControl("HeaderName").Text = S;
+            Master.HeaderAccountLabel.Text = Session["accountNo"].ToString();
 
         }
 
         Balance.Text = "HI Customer";
     }
 
-   
+
 }

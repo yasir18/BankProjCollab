@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masterPage.master" AutoEventWireup="true" CodeFile="ChangePasswordMaster.aspx.cs" Inherits="_changePasswordwordMaster" %>
-
+<%@ MasterType VirtualPath="~/masterPage.master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <div>
     

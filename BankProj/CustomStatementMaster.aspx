@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masterPage.master" AutoEventWireup="true" CodeFile="CustomStatementMaster.aspx.cs" Inherits="_CustomStatementMaster" %>
-
+<%@ MasterType VirtualPath="~/masterPage.master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <div>
     

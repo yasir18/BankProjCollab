@@ -38,7 +38,7 @@ public partial class _Customermaster : System.Web.UI.Page
             else
             {
                 submit.Visible = false;
-                ErrorMsg.Text = System.Configuration.ConfigurationManager.AppSettings["accountNotFound"];
+                ErrorMsg.Text = Resources.Resource.accountNotFound;
             }
         }
         else
@@ -64,7 +64,7 @@ public partial class _Customermaster : System.Web.UI.Page
         if (selectedRecord == "0")
         {
 
-            ErrorMsg.Text = System.Configuration.ConfigurationManager.AppSettings["accountError"];
+            ErrorMsg.Text = Resources.Resource.accountError;
 
             ErrorMsg.Visible = true;
         }

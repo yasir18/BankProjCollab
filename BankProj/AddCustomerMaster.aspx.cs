@@ -47,12 +47,12 @@ public partial class _AddCustomerMaster : System.Web.UI.Page
         int rows_affected = sc.addCustomer(customer);
         if (rows_affected == 0)
         {
-            Label2.Text = System.Configuration.ConfigurationManager.AppSettings["customerAddingError"];
+            Label2.Text = Resources.Resource.customerAddingError;
 
         }
         else
         {
-            Label2.Text = System.Configuration.ConfigurationManager.AppSettings["customerAdded"];
+            Label2.Text = Resources.Resource.customerAdded;
         }
     }
     protected void state_SelectedIndexChanged(object sender, EventArgs e)
@@ -206,15 +206,5 @@ public partial class _AddCustomerMaster : System.Web.UI.Page
                 city.Items.Add(new ListItem("Roing", "roing"));
                 break;
         }
-    }
-
-
-
-
-
-
-    protected void custName_TextChanged(object sender, EventArgs e)
-    {
-
     }
 }

@@ -25,7 +25,7 @@ public partial class _WithdrawMaster : System.Web.UI.Page
         }
         catch(Exception exc)
         {
-            Res.Text = "Enter valid details!!";
+            Res.Text = Resources.Resource.invalidDetails;
         }
        
     }

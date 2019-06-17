@@ -16,6 +16,8 @@
     
 </head>
 <body style=" width:1500px; height:1500px ">
+    <script src="Scripts/jquery-3.0.0.min.js"></script>  
+    <script src="Scripts/jquery.validate.min.js"></script> 
     <div>
     <form id="form1" runat="server">
     
@@ -26,9 +28,9 @@
             <h1>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 BANKING APPLICATION&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Home" Width="122px" />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Home" Width="122px" UseSubmitBehavior="false" CausesValidation="false"/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button2"  runat="server" OnClick="Button2_Click"  Width="120px" />
+            <asp:Button ID="Button2"  runat="server" OnClick="Button2_Click"  Width="120px" CausesValidation="false" UseSubmitBehavior="false"/>
             </h1>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="HeaderName" runat="server" ></asp:Label>
@@ -42,25 +44,25 @@
             <h3>
                 &nbsp;</h3>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="MasterButton1" runat="server" OnClick="MasterButton1_Click" />
+            <asp:Button ID="MasterButton1" runat="server" OnClick="MasterButton1_Click" UseSubmitBehavior="false" CausesValidation="false"  />
              &nbsp;
             <br />
             <br />
              &nbsp;&nbsp;&nbsp;&nbsp;
-             <asp:Button ID="MasterButton2" runat="server" OnClick="MasterButton2_Click" />
+             <asp:Button ID="MasterButton2" runat="server" OnClick="MasterButton2_Click" UseSubmitBehavior="false" CausesValidation="false" />
              &nbsp;
              <br />
             <br />
              &nbsp;&nbsp;&nbsp;&nbsp;
-             <asp:Button ID="MasterButton3" runat="server" OnClick="MasterButton3_Click" />
+             <asp:Button ID="MasterButton3" runat="server" OnClick="MasterButton3_Click" UseSubmitBehavior="false" CausesValidation="false" />
              &nbsp;
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="MasterButton4" runat="server" OnClick="MasterButton4_Click" />
+            <asp:Button ID="MasterButton4" runat="server" OnClick="MasterButton4_Click" UseSubmitBehavior="false" CausesValidation="false" />
              &nbsp;<br /><br />
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="MasterButton5" runat="server" OnClick="MasterButton5_Click" />
+            <asp:Button ID="MasterButton5" runat="server" OnClick="MasterButton5_Click" UseSubmitBehavior="false" CausesValidation="false"/>
         </td>
         <td style="height: 500px; background-color: #E6E6E6; width: 650px">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">

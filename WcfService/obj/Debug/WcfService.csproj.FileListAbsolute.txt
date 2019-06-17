@@ -20,3 +20,5 @@ C:\Users\YA185024\Desktop\BankProjCollab\WcfService\bin\WcfService.dll
 C:\Users\YA185024\Desktop\BankProjCollab\WcfService\bin\WcfService.pdb
 C:\Users\YA185024\Desktop\BankProjCollab\WcfService\obj\Debug\WcfService.dll
 C:\Users\YA185024\Desktop\BankProjCollab\WcfService\obj\Debug\WcfService.pdb
+C:\Users\YA185024\Desktop\BankProjCollab\WcfService\obj\Debug\WcfService.Resource.resources
+C:\Users\YA185024\Desktop\BankProjCollab\WcfService\obj\Debug\WcfService.csproj.GenerateResource.Cache

@@ -9,62 +9,63 @@ public partial class Master : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
-
-        ServiceReference1.Service1Client sc = new ServiceReference1.Service1Client();
-        string loginstatus = null;
-
-        if (Session["Role"] != null)
-        {
-            string sessionstatus = Session["Role"].ToString();
-
-            if (sessionstatus != null)
-                loginstatus = "Logout";
-        }
-        else
-        {
-            loginstatus = "Login";
-
-        }
-        Button2.Text = loginstatus;
-        if (Session["role"] == null)
-        {
-            MasterButton1.Visible = false;
-            MasterButton2.Visible = false;
-            MasterButton3.Visible = false;
-            MasterButton4.Visible = false;
-            MasterButton5.Visible = false;
-            Button1.Visible = false;
-            Button2.Visible = false;
-
-
-        }
-        else if (Session["role"].ToString() == "Customer")
-        {
-            MasterButton1.Text = "Fund Transfer";
-            MasterButton2.Text = "MiniStatement";
-            MasterButton3.Text = "Change Password";
-            MasterButton4.Text = "Balance Enquiry";
-            MasterButton5.Text = "Custom Statement";
-            HeaderName.Text = sc.getCustomerName(Session["userId"].ToString());
-
-
-        }
-        else if (Session["role"].ToString() == "Manager")
-        {
-            MasterButton1.Text = "Withdrawal";
-            MasterButton2.Text = "Deposit";
-            MasterButton3.Text = "Customer";
-            MasterButton4.Text = "Account";
-            MasterButton5.Visible = false;
-            HeaderName.Text = Session["userId"].ToString();
-
-        }
-        else
+        if (!IsPostBack)
         {
 
-        }
+            ServiceReference1.Service1Client sc = new ServiceReference1.Service1Client();
+            string loginstatus = null;
 
+            if (Session["Role"] != null)
+            {
+                string sessionstatus = Session["Role"].ToString();
+
+                if (sessionstatus != null)
+                    loginstatus = "Logout";
+            }
+            else
+            {
+                loginstatus = "Login";
+
+            }
+            Button2.Text = loginstatus;
+            if (Session["role"] == null)
+            {
+                MasterButton1.Visible = false;
+                MasterButton2.Visible = false;
+                MasterButton3.Visible = false;
+                MasterButton4.Visible = false;
+                MasterButton5.Visible = false;
+                Button1.Visible = false;
+                Button2.Visible = false;
+
+
+            }
+            else if (Session["role"].ToString() == "Customer")
+            {
+                MasterButton1.Text = "Fund Transfer";
+                MasterButton2.Text = "MiniStatement";
+                MasterButton3.Text = "Change Password";
+                MasterButton4.Text = "Balance Enquiry";
+                MasterButton5.Text = "Custom Statement";
+                HeaderName.Text = sc.getCustomerName(Session["userId"].ToString());
+
+
+            }
+            else if (Session["role"].ToString() == "Manager")
+            {
+                MasterButton1.Text = "Withdrawal";
+                MasterButton2.Text = "Deposit";
+                MasterButton3.Text = "Customer";
+                MasterButton4.Text = "Account";
+                MasterButton5.Visible = false;
+                HeaderName.Text = Session["userId"].ToString();
+
+            }
+            else
+            {
+
+            }
+        }
     }
 
     public Label HeaderAccountLabel
@@ -106,13 +107,14 @@ public partial class Master : System.Web.UI.MasterPage
 
     protected void MasterButton1_Click(object sender, EventArgs e)
     {
+        MasterButton1.CausesValidation = false;
         if (Session["role"].ToString() == "Manager")
         {
             Response.Redirect("WithdrawMaster.aspx");
         }
         else
         {
-            Session["type"] = "FundTransfer";
+           
             Response.Redirect("FundTransferMaster.aspx");
         }
     }

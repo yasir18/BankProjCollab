@@ -23,7 +23,7 @@ public partial class _CustomerMenuMaster : System.Web.UI.Page
 
         }
 
-        Balance.Text = "HI Customer";
+        Balance.Text = Resources.Resource.greetCustomer;
     }
 
 

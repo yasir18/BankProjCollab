@@ -30,7 +30,7 @@ public partial class _ManageCustomerMaster : System.Web.UI.Page
     {
         ServiceReference1.Service1Client sc = new ServiceReference1.Service1Client();
         if (custId.Text == "")
-            Label2.Text = "Please Enter Customer ID";
+            Label2.Text = Resources.Resource.enterCustomerId;
         else
         {
             try
@@ -39,7 +39,7 @@ public partial class _ManageCustomerMaster : System.Web.UI.Page
 
                 if (clist.Count == 0)
                 {
-                    Label2.Text = ConfigurationManager.AppSettings["noCustomersMessage"];
+                    Label2.Text = Resources.Resource.noCustomersMessage;
                     result.DataSource = sc.getSpecificCustomer(int.Parse(custId.Text));
                     result.DataBind();
                     add.Visible = true;
@@ -48,7 +48,7 @@ public partial class _ManageCustomerMaster : System.Web.UI.Page
                 }
                 else
                 {
-                    Label2.Text = ConfigurationManager.AppSettings["CustomersFound"];
+                    Label2.Text = Resources.Resource.customerFound;
 
                     result.DataSource = sc.getSpecificCustomer(int.Parse(custId.Text));
                     result.DataBind();
@@ -59,7 +59,7 @@ public partial class _ManageCustomerMaster : System.Web.UI.Page
             }
             catch(Exception exe)
             {
-                Label3.Text = "Enter valid Details!!";
+                Label3.Text = Resources.Resource.invalidDetails;
             }
         }
     }
@@ -72,11 +72,11 @@ public partial class _ManageCustomerMaster : System.Web.UI.Page
         int rows_affected = sc.deleteCustomer(customerID);
         if (rows_affected == 0)
         {
-            Label2.Text = "Error while deleting customer";
+            Label2.Text = Resources.Resource.customerNotDeleted;
         }
         else
         {
-            Label2.Text = "Customer Deleted!";
+            Label2.Text = Resources.Resource.customerDeleted;
         }
     }
 
@@ -88,7 +88,7 @@ public partial class _ManageCustomerMaster : System.Web.UI.Page
         IList<customer> slist= sc.showAll();
         if (slist.Count == 0)
         {
-            Label2.Text = ConfigurationManager.AppSettings["noCustomersMessage"];
+            Label2.Text = Resources.Resource.noCustomersMessage;
             result.DataSource = slist;
             result.DataBind();
         }

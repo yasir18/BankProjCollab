@@ -2,6 +2,65 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
 
+      <script type ="text/javascript" >
+          $(document).ready(function () {
+              $("#form1").validate({
+                  rules: {
+                    
+                      <%=custName1.UniqueID %>:{  
+                        required:true ,
+                        maxlength:20,
+                    },
+                    <%=address.UniqueID %>:{  
+                         required:true ,
+                         maxlength:60,
+                     },
+                    <%=pinCode.UniqueID %>:{  
+                        digits:true,
+                        maxlength:10,
+                    },
+                    <%=phoneNumber.UniqueID %>:{  
+                        digits:true,
+                        maxlength:10,
+                    },
+                    <%=email2.UniqueID %>:{  
+                        required:true ,
+                        email:true,
+                        maxlength:20,
+                    },
+                },
+
+                messages: {
+                    
+                    <%=custName1.UniqueID %>:{  
+                        required: "* Name required *"  ,
+                        maxlength: "* max length is 20 chars only *",
+                    },
+                    <%=address.UniqueID %>:{  
+                        required: "* Address required *"  ,
+                        maxlength: "* max length is 60 chars only *",
+                    },
+                    <%=pinCode.UniqueID %>:{  
+                        digits: "* Only digits are allowed *"  ,
+                        maxlength: "* max length is 10 chars only *",
+                    },
+                    <%=phoneNumber.UniqueID %>:{  
+                        digits: "* Only digits are allowed *"  ,
+                        maxlength: "* max length is 10 chars only *",
+
+                    },
+                    <%=email2.UniqueID %>:{  
+                        required: "* Email required *"  ,
+                        email:"* Enter a valid Email address *",
+                        maxlength: "* max length is 20 chars only *",
+                    },
+                },
+            });
+        });
+
+ </script> 
+
+
     <div>
     <table style="width:100%;" id="addCustomerForm1" runat="server">
             <tr>
@@ -9,7 +68,6 @@
                     <asp:Label ID="nameLabel" runat="server" Text="Name: "></asp:Label>
                 </td>
                 <td><asp:TextBox ID="custName1" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="custName1" ErrorMessage="Required"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -94,7 +152,6 @@
                 </td>
                 <td>
                     <asp:TextBox ID="pinCode" runat="server"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="pinCode" ErrorMessage="Not valid" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -103,7 +160,6 @@
                 </td>
                 <td>
                     <asp:TextBox ID="phoneNumber" runat="server"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="phoneNumber" ErrorMessage="Not Valid" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -112,7 +168,6 @@
                 </td>
                 <td>
                     <asp:TextBox ID="email2" runat="server"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="email2" ErrorMessage="Not Valid" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </td>
             </tr>
         </table>

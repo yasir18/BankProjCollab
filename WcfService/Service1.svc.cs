@@ -55,14 +55,14 @@ namespace WcfService
                 else
                 {
                     con.Close();
-                    return System.Configuration.ConfigurationManager.AppSettings["wrongPassword"];
+                    return Resource.wrongPassword;
                 }
 
             }
             else
             {
                 con.Close();
-                return System.Configuration.ConfigurationManager.AppSettings["userNotFound"];
+                return Resource.userNotFound;
             }
 
         }
@@ -86,7 +86,7 @@ namespace WcfService
             command.Parameters.Add(_dob);
             SqlParameter _address = new SqlParameter("@state", customer.State);
             command.Parameters.Add(_address);
-            SqlParameter _state = new SqlParameter("@address", customer.Dob);
+            SqlParameter _state = new SqlParameter("@address", customer.Address);
             command.Parameters.Add(_state);
             SqlParameter _city = new SqlParameter("@city", customer.City);
             command.Parameters.Add(_city);
@@ -126,7 +126,7 @@ namespace WcfService
             }
             else
             {
-                customerName = "Error";
+                customerName = Resource.error;
             }
             return customerName;
         }
@@ -297,11 +297,11 @@ namespace WcfService
             SqlCommand command = new SqlCommand(sql, con);
             SqlParameter param1 = new SqlParameter("@acc", acc);
             command.Parameters.Add(param1);
-            DateTime Start = start.Date.Date;
-            SqlParameter param2 = new SqlParameter("@start", Start);
+            DateTime Start = start.Date;
+            SqlParameter param2 = new SqlParameter("@start", Start.ToString());
             command.Parameters.Add(param2);
-            DateTime End = end.Date.Date;
-            SqlParameter param3 = new SqlParameter("@end", End);
+            DateTime End = end.Date;
+            SqlParameter param3 = new SqlParameter("@end", End.ToString());
             command.Parameters.Add(param3);
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(command);
@@ -419,74 +419,134 @@ namespace WcfService
                     }
                     else
                     {
-                        return System.Configuration.ConfigurationManager.AppSettings["amountNotSufficient"];
+                        return Resource.insufficientAmount;
                     }
                 }
             }
             else
             {
-                return System.Configuration.ConfigurationManager.AppSettings["accountNotFound"];
+                return Resource.accountNotFound;
             }
 
+            string sql2 = "insTrans";
+            string date = DateTime.Today.Date.ToString();
+
+            long p = 0;
+
+            SqlCommand command22 = new SqlCommand(sql2, con);
+
+            SqlParameter param11 = new SqlParameter("@acc1", acc);
+
+            command22.Parameters.Add(param11);
+
+            SqlParameter param22 = new SqlParameter("@acc2", acc);
+
+            command22.Parameters.Add(param22);
+
+            SqlParameter param33 = new SqlParameter("@Date", date);
+
+            command22.Parameters.Add(param33);
+
+            SqlParameter param44 = new SqlParameter("@amt", amt);
+
+            command22.Parameters.Add(param44);
+
+            SqlParameter param55 = new SqlParameter("@type", "withdraw");
+
+            command22.Parameters.Add(param55);
+
+            SqlParameter param66 = new SqlParameter("@comment", "withdraw done");
+
+            command22.Parameters.Add(param66);
+
+            command22.CommandType = CommandType.StoredProcedure;
+
+            command22.ExecuteNonQuery();
+
             con.Close();
-            return System.Configuration.ConfigurationManager.AppSettings["success"];
+            return Resource.success;
 
         }
+
         public string deposit(long acc, int amt)
         {
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
             string sql = "checkAcc";
-
             SqlCommand command = new SqlCommand(sql, con);
             SqlParameter param1 = new SqlParameter("@acc", acc);
-
-
             command.Parameters.Add(param1);
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(command);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            //int res, res1;
+
+
             if (ds.Tables[0].Rows.Count > 0)
             {
-
                 string sql3 = "deposit";
-
                 SqlCommand command2 = new SqlCommand(sql3, con);
                 SqlParameter param3 = new SqlParameter("@acc", acc);
-
-
                 command2.Parameters.Add(param3);
                 SqlParameter param4 = new SqlParameter("@amt", amt);
-
-
                 command2.Parameters.Add(param4);
-
                 command2.CommandType = CommandType.StoredProcedure;
                 command2.ExecuteNonQuery();
-
-
-
             }
             else
             {
                 con.Close();
-                return System.Configuration.ConfigurationManager.AppSettings["accountNotFound"];
-
+                return Resource.accountNotFound;
             }
 
+            string sql2 = "insTrans";
+            string date = DateTime.Today.Date.ToString();
+
+            long p = 0;
+
+            SqlCommand command22 = new SqlCommand(sql2, con);
+
+            SqlParameter param11 = new SqlParameter("@acc1", acc);
+
+            command22.Parameters.Add(param11);
+
+            SqlParameter param22 = new SqlParameter("@acc2", acc);
+
+            command22.Parameters.Add(param22);
+
+            SqlParameter param33 = new SqlParameter("@Date", date);
+
+            command22.Parameters.Add(param33);
+
+            SqlParameter param44 = new SqlParameter("@amt", amt);
+
+            command22.Parameters.Add(param44);
+
+            SqlParameter param55 = new SqlParameter("@type", "deposit");
+
+            command22.Parameters.Add(param55);
+
+            SqlParameter param66 = new SqlParameter("@comment", "deposit done");
+
+            command22.Parameters.Add(param66);
+
+            command22.CommandType = CommandType.StoredProcedure;
+
+            command22.ExecuteNonQuery();
+
             con.Close();
-            return System.Configuration.ConfigurationManager.AppSettings["success"];
+
+            return Resource.success;
 
         }
+
         public void insTrans(long acc1, long acc2, int amt, string type, string comment)
         {
 
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
             string sql = "insTrans";
-            string date = DateTime.Now.ToString();
+            string date = DateTime.Now.Date.Date.ToString();
 
             SqlCommand command = new SqlCommand(sql, con);
             SqlParameter param1 = new SqlParameter("@acc1", acc1);
@@ -656,7 +716,7 @@ namespace WcfService
                     {
                         if (new1.Equals(old))
                         {
-                            return System.Configuration.ConfigurationManager.AppSettings["sameOldPassword"];
+                            return Resource.sameOldPassword;
                         }
                         else
                         {
@@ -669,7 +729,7 @@ namespace WcfService
                             command1.CommandType = CommandType.StoredProcedure;
                             command1.ExecuteNonQuery();
                             con.Close();
-                            return System.Configuration.ConfigurationManager.AppSettings["passwordChanged"];
+                            return Resource.passwordChanged;
                         }
 
 
@@ -677,15 +737,15 @@ namespace WcfService
                     else
                     {
                         con.Close();
-                        return System.Configuration.ConfigurationManager.AppSettings["passwordMismatch"];
+                        return Resource.passwordMismatch;
                     }
                 }
                 con.Close();
-                return System.Configuration.ConfigurationManager.AppSettings["oldPasswordMismatch"];
+                return Resource.oldPasswordMismatch;
 
             }
             con.Close();
-            return System.Configuration.ConfigurationManager.AppSettings["passwordNotFound"];
+            return Resource.passwordNotFound;
 
         }
         public void transferSub(int amount, long acc)

@@ -19,7 +19,7 @@ public partial class _MiniStatementMaster : System.Web.UI.Page
         {
             ServiceReference1.Service1Client obj = new ServiceReference1.Service1Client();
             Ministate.DataSource = obj.ministatement(long.Parse(Session["accountNo"].ToString()));
-           
+            Master.HeaderAccountLabel.Text = Session["accountNo"].ToString();
             
             Ministate.DataBind();
         }

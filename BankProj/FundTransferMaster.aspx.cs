@@ -16,6 +16,7 @@ public partial class _FundTransferMaster : System.Web.UI.Page
         }
         else
         {
+            Session["type"]="FundTransfer";
             account1.Text = Session["accountNo"].ToString();
             Master.HeaderAccountLabel.Text = Session["accountNo"].ToString();
         }
@@ -32,7 +33,7 @@ public partial class _FundTransferMaster : System.Web.UI.Page
             ServiceReference1.Service1Client obj = new ServiceReference1.Service1Client();
             if (acc1 == acc2)
             {
-                Label6.Text = "Cannot transfer to same account";
+                Label6.Text = Resources.Resource.sameAccountTransactionError;
                 return;
             }
             long res = obj.checkAccount(acc2);
@@ -45,25 +46,24 @@ public partial class _FundTransferMaster : System.Web.UI.Page
                     obj.transferAdd(int.Parse(amount.Text), acc2);
                     obj.transferSub(int.Parse(amount.Text), acc1);
 
-                    Label6.Text = "Tranasaction Successful:" + int.Parse(amount.Text);
+                    Label6.Text = Resources.Resource.transactionSuccessfull + int.Parse(amount.Text);
                     string type = Session["type"].ToString();
                     obj.insTrans(acc1, acc2, int.Parse(amount.Text), type, comment.Text);
 
                 }
                 else
                 {
-                    Label6.Text = "No sufficient amount";
+                    Label6.Text = Resources.Resource.insufficientAmount;
                 }
             }
             else
             {
-                Label6.Text = "Acc Not existing";
+                Label6.Text = Resources.Resource.accountNotFound;
             }
         }
 
-        catch (Exception exp)
-        {
-            Label6.Text = "Enter valid details!!";
+        catch (Exception exp) {
+            Label6.Text = Resources.Resource.invalidDetails;
         }
     }
 }

@@ -15,7 +15,7 @@ public partial class _Default : System.Web.UI.Page
             Master.HeaderAccountLabel.Text = Session["accountNo"].ToString();
             ServiceReference1.Service1Client obj = new ServiceReference1.Service1Client();
             int balance = obj.balanceEnquiry(long.Parse(Account.Text));
-            Balance.Text = System.Configuration.ConfigurationManager.AppSettings["message"] + balance.ToString();
+            Balance.Text = Resources.Resource.balanceIs + balance.ToString();
         }
         catch (Exception exp)
         {

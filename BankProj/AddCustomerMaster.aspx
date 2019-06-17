@@ -1,26 +1,62 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masterPage.master" AutoEventWireup="true" CodeFile="AddCustomerMaster.aspx.cs" Inherits="_AddCustomerMaster" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
-    <!--include jQuery -->  
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
-        type="text/javascript"></script>   
-<!--include jQuery Validation Plugin-->  
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"
-        type="text/javascript"></script> 
+    
 
-
+    
+     
     <script type ="text/javascript" >
         $(document).ready(function () {
-            $("#addCustomerForm").validate({
+            $("#form1").validate({
                 rules: {
-                    //This section we need to place our custom rule for the control. 
+                    
                     <%=custName1.UniqueID %>:{  
-                        required:true  
-                    } 
+                        required:true ,
+                        maxlength:20,
+                    },
+                     <%=address.UniqueID %>:{  
+                         required:true ,
+                         maxlength:60,
+                     },
+                    <%=pinCode.UniqueID %>:{  
+                        digits:true,
+                        maxlength:10,
+                    },
+                    <%=phoneNumber.UniqueID %>:{  
+                        digits:true,
+                        maxlength:10,
+                    },
+                    <%=email2.UniqueID %>:{  
+                        required:true ,
+                        email:true,
+                        maxlength:20,
+                    },
                 },
-                messages: {
-                    //This section we need to place our custom validation message for each control.  
 
+                messages: {
+                    
+                    <%=custName1.UniqueID %>:{  
+                        required: "* Name required *"  ,
+                        maxlength: "* max length is 20 chars only *",
+                    },
+                    <%=address.UniqueID %>:{  
+                        required: "* Address required *"  ,
+                        maxlength: "* max length is 60 chars only *",
+                    },
+                    <%=pinCode.UniqueID %>:{  
+                        digits: "* Only digits are allowed *"  ,
+                        maxlength: "* max length is 10 chars only *",
+                    },
+                    <%=phoneNumber.UniqueID %>:{  
+                        digits: "* Only digits are allowed *"  ,
+                        maxlength: "* max length is 10 chars only *",
+
+                    },
+                    <%=email2.UniqueID %>:{  
+                        required: "* Email required *"  ,
+                        email:"* Enter a valid Email address *",
+                        maxlength: "* max length is 20 chars only *",
+                    },
                 },
             });
         });
@@ -120,7 +156,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="pinCode" runat="server"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="pinCode" ErrorMessage="Not valid" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
+                    
                 </td>
             </tr>
             <tr>
@@ -129,7 +165,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="phoneNumber" runat="server"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="phoneNumber" ErrorMessage="Not Valid" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
+                   
                 </td>
             </tr>
             <tr>
@@ -138,7 +174,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="email2" runat="server"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="email2" ErrorMessage="Not Valid" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    
                 </td>
             </tr>
         </table>

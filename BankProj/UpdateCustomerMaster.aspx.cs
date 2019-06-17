@@ -24,7 +24,7 @@ public partial class _UpdateCustomerMaster : System.Web.UI.Page
                 IList<customer> ulist = sc.getSpecificCustomer(int.Parse((Session["custId"]).ToString()));
                 if (ulist.Count == 0)
                 {
-                    Label2.Text = ConfigurationManager.AppSettings["noCustomersMessage"];
+                    Label2.Text = Resources.Resource.noCustomersMessage;
                 }
                 else
                 {
@@ -224,11 +224,11 @@ public partial class _UpdateCustomerMaster : System.Web.UI.Page
         int rows_affected = sc.updateCustomer(customer);
         if (rows_affected == 0)
         {
-            Label2.Text = "Error while updating customer";
+            Label2.Text = Resources.Resource.customerNotUpdated;
         }
         else
         {
-            Label2.Text = "Customer Updated!";
+            Label2.Text = Resources.Resource.customerUpdated;
         }
     }
 }

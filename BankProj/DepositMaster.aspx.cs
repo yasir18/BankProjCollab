@@ -26,7 +26,7 @@ public partial class _DepositMaster : System.Web.UI.Page
         }
         catch (Exception exc)
         {
-            Res.Text = System.Configuration.ConfigurationManager.AppSettings["invalidDetails"];
+            Res.Text = Resources.Resource.invalidDetails;
         }
        
     }

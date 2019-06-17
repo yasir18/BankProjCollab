@@ -35,7 +35,7 @@ public partial class _CustomStatementGridMaster : System.Web.UI.Page
 
             catch (Exception exe)
             {
-                Label1.Text = System.Configuration.ConfigurationManager.AppSettings["invalidDetails"];
+                Label1.Text = Resources.Resource.invalidDetails;
             }
         }
     }

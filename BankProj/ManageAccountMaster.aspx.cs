@@ -56,7 +56,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
             int rows = aobj.Count;
             if (rows == 0)
             {
-                Label2.Text = "No Accounts available for the given customer id.Add a new Customer and come back";
+                Label2.Text = Resources.Resource.customerNotExists;
                 GridView1.DataSource = aobj;
                 GridView1.DataBind();
                 AddButton.Visible = false;
@@ -66,7 +66,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
             }
             else if (int.Parse(aobj[0].customerId.ToString())== int.Parse(CustomerIdTextBox.Text.ToString()) && aobj[0].accountNo!=0)
             {
-                Label2.Text = "Accounts available are";
+                Label2.Text = Resources.Resource.accountFound;
                 GridView1.DataSource = aobj;
                 GridView1.DataBind();
                 AddButton.Visible = true;
@@ -78,7 +78,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
             }
             else
             {
-                Label2.Text = "Customer Already exists!! Add a New Account";
+                Label2.Text = Resources.Resource.customerExists;
                 AddButton.Visible = true;
                 EditButton.Visible = false;
                 DeleteButton.Visible = false;
@@ -96,7 +96,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
 
         if (string.IsNullOrWhiteSpace(CustomerIdTextBox.Text))
         {
-            Label2.Text = "Please enter customer Id to add account";
+            Label2.Text = Resources.Resource.enterCustomerId;
         }
 
         //Making all the fields necessary visible
@@ -141,13 +141,13 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
 
         if (returnValue)
         {
-            Label2.Text = "Account Added successfully";
+            Label2.Text = Resources.Resource.accountAdded;
 
             //This is to display updated gridview after insertion
             IList<Account> aobj = sc.GetCustomerId(int.Parse(CustomerIdTextBox.Text));
             if (aobj.Count == 0)
             {
-                Label2.Text = "No Accounts available";
+                Label2.Text = Resources.Resource.accountNotFound;
                 GridView1.DataSource = aobj;
                 GridView1.DataBind();
 
@@ -155,7 +155,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
 
             else
             {
-                Label2.Text = "Accounts available are";
+                Label2.Text = Resources.Resource.accountFound;
                 GridView1.DataSource = aobj;
                 GridView1.DataBind();
 
@@ -164,7 +164,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
 
         else
         {
-            Label2.Text = "Account not Added";
+            Label2.Text = Resources.Resource.accountNotAdded;
         }
 
 
@@ -182,7 +182,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
 
         if (selectedRecord == 0)
         {
-            Label2.Text = "Please select an account to edit!!";
+            Label2.Text = Resources.Resource.accountError;
         }
 
         //Making all fields visible
@@ -213,7 +213,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
             //This is to populate existing values into text boxes
             AccountTypeTextBox.Text = aobj[0].accountType.ToString();
             DateOfOpeneningTextBox.Text = aobj[0].DateOfOpen.ToString();
-            StatusTextBox.Text = aobj[0].status.ToString();
+            StatusTextBox.SelectedValue = aobj[0].status;
             DateOfEditedTextBox.Text = aobj[0].dateOfEdited.ToString();
             ClosingDateTextBox.Text = aobj[0].ClosingDate.ToString();
             AmountTextBox.Text = aobj[0].amount.ToString();
@@ -245,13 +245,13 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
 
         if (returnValue)
         {
-            Label2.Text = "Account Edited successfully";
+            Label2.Text = Resources.Resource.accountEdited;
             IList<Account> aobj = sc.GetCustomerId(int.Parse(CustomerIdTextBox.Text));
 
             //This if-else is to display the updated table to the manager/staff
             if (aobj.Count == 0)
             {
-                Label2.Text = "No Accounts available";
+                Label2.Text = Resources.Resource.accountNotFound;
                 GridView1.DataSource = aobj;
                 GridView1.DataBind();
 
@@ -259,7 +259,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
 
             else
             {
-                Label2.Text = "Accounts available are";
+                Label2.Text = Resources.Resource.accountFound;
                 GridView1.DataSource = aobj;
                 GridView1.DataBind();
 
@@ -270,7 +270,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
 
         else
         {
-            Label2.Text = "Account not edited!!";
+            Label2.Text = Resources.Resource.accountNotEdited;
         }
 
     }
@@ -286,7 +286,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
 
         if (selectedRecord == 0)
         {
-            Label2.Text = "Please select an account to delte!!";
+            Label2.Text = Resources.Resource.accountError;
         }
 
         else
@@ -307,14 +307,14 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
         returnValue = sc.DeleteAccount(accountToBeDeleted);
         if (returnValue)
         {
-            Label2.Text = "Account deleted successfully";
+            Label2.Text = Resources.Resource.accountDeleted;
             IList<Account> aobj = sc.GetCustomerId(int.Parse(CustomerIdTextBox.Text));
 
             //This if-else displays the updated table after deletion
 
             if (aobj.Count == 0)
             {
-                Label2.Text = "No Accounts available";
+                Label2.Text = Resources.Resource.accountNotFound;
                 GridView1.DataSource = aobj;
                 GridView1.DataBind();
 
@@ -322,7 +322,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
 
             else
             {
-                Label2.Text = "Accounts available are";
+                Label2.Text = Resources.Resource.accountFound;
                 GridView1.DataSource = aobj;
                 GridView1.DataBind();
 
@@ -332,7 +332,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
 
         else
         {
-            Label2.Text = "Account not deleted!!";
+            Label2.Text = Resources.Resource.accountNotDeleted;
         }
 
 
@@ -362,9 +362,4 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
 
         return 0;
     }
-
-
-
-
-
 }

@@ -9,11 +9,14 @@ public partial class _CustomStatementMaster : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["role"].ToString() != "Customer")
+        if (!IsPostBack)
         {
-            Response.Redirect("LoginPageMaster.aspx");
+            if (Session["role"].ToString() != "Customer")
+            {
+                Response.Redirect("LoginPageMaster.aspx");
+            }
+            Master.HeaderAccountLabel.Text = Session["accountNo"].ToString();
         }
-        Master.HeaderAccountLabel.Text = Session["accountNo"].ToString();
     }
 
     protected void Button1_Click(object sender, EventArgs e)

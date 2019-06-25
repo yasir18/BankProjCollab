@@ -47,7 +47,7 @@ public partial class _UpdateCustomerMaster : System.Web.UI.Page
             customer.Gender = 'M';
         else
             customer.Gender = 'F';
-        customer.Dob = dob.SelectedDate.ToShortDateString();
+        customer.Dob = dob.Text;
         customer.Address = address.Text.ToString();
         customer.State = state.SelectedValue;
         customer.City = city.SelectedValue;

@@ -26,7 +26,8 @@ public partial class _AddCustomerMaster : System.Web.UI.Page
             customer.Gender = 'M';
         else
             customer.Gender = 'F';
-        customer.Dob = dob.SelectedDate.ToShortDateString();
+        customer.Dob = dob.Text;
+        //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('text Selected Date: " + dob.Text + "');", true);
         customer.Address = address.Text;
         customer.State = state.SelectedValue;
         customer.City = city.SelectedValue;

@@ -7,61 +7,79 @@
 <head runat="server">
     <title>bank application</title>
     <link href="Scripts/CSS/bootstrap.css" rel="stylesheet" />
-<link href="Scripts/bootstrap.min.css" rel="stylesheet"/>
-   
+    <link href="Scripts/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" type="text/css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js" type="text/javascript"></script>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder> 
-    
-    
+   <%-- <style>
+        .sidenav {
+            height: 100%;
+            /*width: 25%;*/
+            position: fixed;
+            z-index: 1;
+            top: 80px;
+            left: 0;
+            /*background-color: #111;*/
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+        .main {
+            height: 100%;
+            /*margin-left: 25%;
+            padding: 0px 10px;
+        }
+    </style>
+    --%>
 </head>
-<body >
-    
+<body>
     <form id="form1" runat="server">
-    <nav class="navbar navbar-expand-lg bg-dark" id="nav" style="margin:0;padding:0;height:80px;">
-        <div class="container-fluid" style="margin:0px;">
-            <div class="navbar-header">
-                <a class="navbar-brand"><h3 style="color:#ffffff">Banking Application</h3></a>
-                <asp:Button id="Button1" CssClass="btn btn-outline-light" runat="server" Text="Home" OnClick="Button1_Click" UseSubmitBehavior="false" CausesValidation="false"></asp:Button>
-            </div>
+        <nav class="navbar navbar-expand-lg bg-dark" id="nav" style="margin:0;padding:0;height:80px;">
+            <div class="container-fluid" style="margin:0px;">
+                <div class="navbar-header">
+                    <a class="navbar-brand"><h3 style="color:#ffffff">Banking Application</h3></a>
+                    <asp:Button id="Button1" CssClass="btn btn-outline-light" runat="server" Text="Home" OnClick="Button1_Click" UseSubmitBehavior="false" CausesValidation="false"></asp:Button>
+                </div>
                 <ul class="nav navbar-nav navbar-right pull-right">
-                <li class="nav-item pull-right">
-                              <asp:Label ID="HeaderName" style="color:#ffffff" runat="server"></asp:Label>
-                    <asp:Label id="HeaderAccountNo" style="color:#ffffff" runat="server"></asp:Label>
-                     <asp:Button id="Button2" Cssclass="btn btn-outline-light my-2 my-sm-0 pull-right" type="submit" runat="server" OnClick="Button2_Click" UseSubmitBehavior="false" CausesValidation="false"> </asp:Button>
-                </li>
-            </ul>
+                    <li class="nav-item pull-right">
+                        <asp:Label ID="HeaderName" style="color:#ffffff" runat="server"></asp:Label>
+                        <asp:Label id="HeaderAccountNo" style="color:#ffffff" runat="server"></asp:Label>
+                        <asp:Button id="Button2" Cssclass="btn btn-outline-light my-2 my-sm-0 pull-right" type="submit" runat="server" OnClick="Button2_Click" UseSubmitBehavior="false" CausesValidation="false"> </asp:Button>
+                    </li>
+                </ul>
             </div>
-    </nav>
-     <div class="row" style="padding:0;">
-  <div class="col-md-2"style="width:auto;height:490px;background-color:#bbb9b9" >
-      <div class="btn-group-vertical" style="padding-left:25px;">
-      <div style=" padding-top:90px;padding-bottom:14px"><asp:Button  class="btn btn-info " ID="MasterButton1" runat="server" OnClick="MasterButton1_Click" UseSubmitBehavior="false" CausesValidation="false"  /></div>
-      <div style="padding-bottom:14px"><asp:Button class="btn btn-info " ID="MasterButton2" runat="server" OnClick="MasterButton2_Click" UseSubmitBehavior="false" CausesValidation="false" /></div>
-      <div style="padding-bottom:14px"><asp:Button class="btn btn-info" ID="MasterButton3" runat="server" OnClick="MasterButton3_Click" UseSubmitBehavior="false" CausesValidation="false" /></div>
-       <div style="padding-bottom:14px"><asp:Button class="btn btn-info" ID="MasterButton4" runat="server" OnClick="MasterButton4_Click" UseSubmitBehavior="false" CausesValidation="false" /></div>
-       <div style="padding-bottom:14px"><asp:Button class="btn btn-info" ID="MasterButton5" runat="server" OnClick="MasterButton5_Click" UseSubmitBehavior="false" CausesValidation="false" /></div>
-
-       </div>
-
-      </div>
-           
-  <div class="col-md-10"style="background-color:#ffffff; width:100%">
-
-      <asp:ContentPlaceHolder id="MainContent" runat="server">
-          
-        </asp:ContentPlaceHolder>
-  </div>
-               </div>
-
-         <div class="w-100"></div>
-          <div class="modal-footer bg-dark" style="" >
-    <!-- Your first column here -->
-      
-  </div>
-                    
-         
-        </form>
-   
-
+        </nav>
+        <div class="row" style="padding:0;">
+            <div class="col-md-2 bg-dark" style="width:auto;height:1000px;"><%--background-color:#bbb9b9" --%>
+                <div class="btn-group-vertical" style="padding-left:25px;">
+                    <div style=" padding-top:90px;padding-bottom:14px"><asp:Button  class="btn btn-info " ID="MasterButton1" runat="server" OnClick="MasterButton1_Click" UseSubmitBehavior="false" CausesValidation="false"  /></div>
+                    <div style="padding-bottom:14px"><asp:Button class="btn btn-info " ID="MasterButton2" runat="server" OnClick="MasterButton2_Click" UseSubmitBehavior="false" CausesValidation="false" /></div>
+                    <div style="padding-bottom:14px"><asp:Button class="btn btn-info" ID="MasterButton3" runat="server" OnClick="MasterButton3_Click" UseSubmitBehavior="false" CausesValidation="false" /></div>
+                    <div style="padding-bottom:14px"><asp:Button class="btn btn-info" ID="MasterButton4" runat="server" OnClick="MasterButton4_Click" UseSubmitBehavior="false" CausesValidation="false" /></div>
+                    <div style="padding-bottom:14px"><asp:Button class="btn btn-info" ID="MasterButton5" runat="server" OnClick="MasterButton5_Click" UseSubmitBehavior="false" CausesValidation="false" /></div>
+                </div>
+            </div>
+            <div class="col-md-10" style="background-color:#c2bcbc; width:100%;  text-align: center;">
+                <asp:ContentPlaceHolder id="MainContent" runat="server">   
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    <%--<div class="w-100"></div>--%>
+        <div class="modal-footer bg-dark" style="" >     
+        </div>
+    </form>
 </body>
 </html>
+    <%--<div class="sidenav">
+        <div class="btn-group-vertical" style="padding-left:25px;">
+        <div style=" padding-top:90px;padding-bottom:14px"><asp:Button  class="btn btn-info " ID="MasterButton1" runat="server" OnClick="MasterButton1_Click" UseSubmitBehavior="false" CausesValidation="false"  /></div>
+        <div style="padding-bottom:14px"><asp:Button class="btn btn-info " ID="MasterButton2" runat="server" OnClick="MasterButton2_Click" UseSubmitBehavior="false" CausesValidation="false" /></div>
+        <div style="padding-bottom:14px"><asp:Button class="btn btn-info" ID="MasterButton3" runat="server" OnClick="MasterButton3_Click" UseSubmitBehavior="false" CausesValidation="false" /></div>
+        <div style="padding-bottom:14px"><asp:Button class="btn btn-info" ID="MasterButton4" runat="server" OnClick="MasterButton4_Click" UseSubmitBehavior="false" CausesValidation="false" /></div>
+        <div style="padding-bottom:14px"><asp:Button class="btn btn-info" ID="MasterButton5" runat="server" OnClick="MasterButton5_Click" UseSubmitBehavior="false" CausesValidation="false" /></div>
+    </div>
+    <div class="main"> <%--style="background-color:#c2bcbc; width:100%;  text-align: center;">
+        <asp:ContentPlaceHolder id="MainContent" runat="server">   
+        </asp:ContentPlaceHolder>
+    </div>--%>
+    

@@ -18,18 +18,20 @@ public partial class _MiniStatementMaster : System.Web.UI.Page
         else
         {
             ServiceReference1.Service1Client obj = new ServiceReference1.Service1Client();
-            Ministate.DataSource = obj.ministatement(long.Parse(Session["accountNo"].ToString()));
+            IList<Transaction> transactionList = obj.ministatement(long.Parse(Session["accountNo"].ToString()));
             Master.HeaderAccountLabel.Text = Session["accountNo"].ToString();
-            
-            Ministate.DataBind();
+            if (transactionList.Count == 0)
+            {
+                message.Text = "No Transactions Available";
+            }
+            else
+            {
+                Ministate.DataSource = transactionList;
+                Ministate.DataBind();
+            }
         }
 
 
-
-    }
-
-    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-    {
 
     }
 }

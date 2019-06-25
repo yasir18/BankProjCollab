@@ -16,14 +16,15 @@ public partial class _CustomStatementMaster : System.Web.UI.Page
                 Response.Redirect("LoginPageMaster.aspx");
             }
             Master.HeaderAccountLabel.Text = Session["accountNo"].ToString();
+            TextBox1.Text = Session["accountNo"].ToString();
         }
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Session["accountNo"] = TextBox1.Text;
-        Session["startdate"] = Calendar1.SelectedDate;
-        Session["enddate"] = Calendar2.SelectedDate;
+        
+        Session["startdate"] = Calendar1.Text;
+        Session["enddate"] = Calendar2.Text;
         Response.Redirect("CustomStatementGridMaster.aspx");
     }
 }

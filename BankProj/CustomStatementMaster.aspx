@@ -3,7 +3,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
 
     <script type ="text/javascript" >
-    $(document).ready(function () {
+        $(function () {
+            $('[id*=Calendar1]').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                format: "dd/mm/yyyy",
+                language: "tr"
+            });
+        });
+        $(function () {
+            $('[id*=Calendar2]').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                format: "dd/mm/yyyy",
+                language: "tr"
+            });
+        });
+        $(document).ready(function () {
             $("#form1").validate({
                 rules: {
                     
@@ -24,24 +40,36 @@
                     },
                    
                 },
+                highlight: function (element) {
+                    $(element).parent().addClass('error')
+                },
+                unhighlight: function (element) {
+                    $(element).parent().removeClass('error')
+                }
             });
-            });
-        </script>
-    <div>
-    
-        <asp:Label ID="Label1" runat="server" Text="Account no:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-    
+        });
+    </script>
+    <style>
+        .error {
+        color: red !important;
+        }
+    </style>
+    <div class="jumbotron d-inline-block" style=" margin-top: 100px">
+        <div class="input-group mb-3">
+            <asp:Label ID="Label1" runat="server" Text="Account no:" CssClass="input-group-text input-group-prepend"></asp:Label>
+            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+        </div>
+        <div class="input-group mb-3">
+            <asp:Label ID="Label2" runat="server" Text="From Date:" CssClass="input-group-text input-group-prepend"></asp:Label>
+            <asp:Textbox ID="Calendar1" runat="server" CssClass="form-control"></asp:Textbox>
+        </div>
+        <div class="input-group mb-3">
+            <asp:Label ID="Label3" runat="server" Text="To Date:" CssClass="input-group-text input-group-prepend"></asp:Label>
+            <asp:Textbox ID="Calendar2" runat="server" CssClass="form-control"></asp:Textbox>
+        </div>
+        <div>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" CssClass="btn btn-outline-info"/>
+        </div>
     </div>
-        <p>
-            <asp:Label ID="Label2" runat="server" Text="From Date:"></asp:Label>
-            <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
-        </p>
-        <asp:Label ID="Label3" runat="server" Text="To Date:"></asp:Label>
-        <asp:Calendar ID="Calendar2" runat="server"></asp:Calendar>
-        <p>
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
-        </p>
 </asp:Content>
 

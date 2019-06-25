@@ -20,41 +20,28 @@
 
     </script>
     
-    <div>
-    
-      <h1>  <asp:Label ID="Role" runat="server" Text="Label"></asp:Label></h1>
-    
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
-            <Columns>
-                <asp:TemplateField>
-
+    <div class="jumbotron d-inline-block" style=" margin-top: 100px">  
+        <div>
+            <h1>  <asp:Label ID="Role" runat="server" Text="Label"></asp:Label></h1>
+        </div>
+        <div class="table-responsive">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="table table-hover table-striped" GridLines="None">
+                <Columns>
+                    <asp:TemplateField>
                         <ItemTemplate>
-
-                           
-                            <%--<asp:RadioButton ID="RadioButton1" runat="server" value="<%# Eval("sno") %>" onclick="RadioCheck(this);" />--%>
                             <input name="RadioButton1" type="radio"  value="<%# Eval("accountNo") %>" onclick="RadioCheck(this);" />
                         </ItemTemplate>
-
                     </asp:TemplateField>
-              <%--  <asp:HyperLinkField DataNavigateUrlFields="accountNo" DataNavigateUrlFormatString="Customer2.aspx?accountNo={0}" DataTextField="accountNo" HeaderText="AccountNo" />
-               --%> 
-                <asp:BoundField  DataField="accountNo" HeaderText="AccountNo"/>
-                <asp:BoundField DataField="accountType" HeaderText="AccountType" />
-                <asp:BoundField DataField="status" HeaderText="Status" />
-            </Columns>
-        </asp:GridView>
-    
-        <br />
-        <asp:Button ID="submit" runat="server" OnClick="Button2_Click" Text="Submit" />
-    
-        <br />
-        <br />
-        <asp:Label ID="ErrorMsg" runat="server"></asp:Label>
-        <br />
-        <br />
-    
-        <br />
-    
+                    <asp:BoundField  DataField="accountNo" HeaderText="AccountNo"/>
+                    <asp:BoundField DataField="accountType" HeaderText="AccountType" />
+                    <asp:BoundField DataField="status" HeaderText="Status" />
+                </Columns>
+            </asp:GridView>
+        </div>
+        <div>
+            <asp:Button ID="submit" runat="server" OnClick="Button2_Click" Text="Submit" CssClass="btn btn-outline-secondary"/>
+        </div>
+        <asp:Label ID="ErrorMsg" runat="server" CssClass="alert-danger"></asp:Label>
     </div>
     
 

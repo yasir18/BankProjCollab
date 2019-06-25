@@ -9,6 +9,7 @@ public partial class _LoginPageMaster : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         if (Session["role"] == "Manager")
         {
             Response.Redirect("ManagerMaster.aspx");
@@ -40,6 +41,7 @@ public partial class _LoginPageMaster : System.Web.UI.Page
         }
         else
         {
+            Label4.Visible = true;
             Label4.Text = result;
         }
     }

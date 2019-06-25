@@ -36,28 +36,35 @@
                     },
                    
                 },
-            });
-        });
+                 highlight: function (element) {
+                     $(element).parent().addClass('error')
+                 },
+                 unhighlight: function (element) {
+                     $(element).parent().removeClass('error')
+                 }
+             });
+         });
+    </script>
+    <style>
+        .error {
+        color: red !important;
+        }
+    </style>
 
- </script> 
-
-    <div>
-    
-        <asp:Label ID="accountNo" runat="server" Text="Account NO"></asp:Label>
-&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="account" runat="server"></asp:TextBox>
-        <br />
-        <br />
-        <asp:Label ID="amount" runat="server" Text="Amount"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="amt" runat="server"></asp:TextBox>
-        <br />
-        <br />
-        <asp:Button ID="withdra" runat="server" OnClick="deposit_Click" Text="Deposit" />
-        <br />
-        <br />
+    <div class="jumbotron d-inline-block" style=" margin-top: 100px">
+        <div class="input-group mb-3">
+            <asp:Label ID="accountNo" runat="server" Text="Account NO" CssClass="input-group-text input-group-prepend"></asp:Label>
+            <asp:TextBox ID="account" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div class="input-group mb-3">
+            <asp:Label ID="amount" runat="server" Text="Amount" CssClass="input-group-text input-group-prepend"></asp:Label>
+            <asp:TextBox ID="amt" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div>
+            <asp:Button ID="withdra" runat="server" OnClick="deposit_Click" Text="Deposit" CssClass="btn btn-outline-secondary"/>
+        </div>
         <asp:Label ID="Res" runat="server"></asp:Label>
-        <br />
+       
     
     </div>
 </asp:Content>

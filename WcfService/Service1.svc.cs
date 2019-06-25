@@ -247,7 +247,6 @@ namespace WcfService
             SqlDataAdapter reader = new SqlDataAdapter(command);
             DataSet ds = new DataSet();
             reader.Fill(ds);
-            List<customer> showobj = new List<customer>();
             conn.Close();
             List<customer> clist = new List<customer>();
             int noofrows = ds.Tables[0].Rows.Count;
@@ -264,6 +263,7 @@ namespace WcfService
                 obj.Dob = ds.Tables[0].Rows[i]["Dob"].ToString();
                 obj.Address = (ds.Tables[0].Rows[i]["Address"].ToString());
                 obj.State = ds.Tables[0].Rows[i]["State"].ToString();
+                obj.City = ds.Tables[0].Rows[i]["City"].ToString();
                 obj.Pincode = ds.Tables[0].Rows[i]["Pincode"].ToString();
                 obj.PhoneNo = ds.Tables[0].Rows[i]["PhoneNo"].ToString();
                 obj.Email = ds.Tables[0].Rows[i]["Email"].ToString();

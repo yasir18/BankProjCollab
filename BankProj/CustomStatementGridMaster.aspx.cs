@@ -18,25 +18,31 @@ public partial class _CustomStatementGridMaster : System.Web.UI.Page
         }
         else
         {
-            try
-            {
+            //try
+            //{
                 ServiceReference1.Service1Client obj = new ServiceReference1.Service1Client();
                 int acc = int.Parse(Session["accountNo"].ToString());
                 Master.HeaderAccountLabel.Text = Session["accountNo"].ToString();
                 DateTime start = DateTime.Parse(Session["startdate"].ToString());
                 DateTime end = DateTime.Parse(Session["enddate"].ToString());
 
-                IList<Transaction> sobj = obj.customstatement(acc, start, end);
+                IList<Transaction> transactionList = obj.customstatement(acc, start, end);
 
-                GridView1.DataSource = sobj;
-                GridView1.DataBind();
+                if (transactionList.Count == 0)
+                {
+                    Label1.Text = "No Transactions Available";
+                }
+                else
+                {
+                    GridView1.DataSource = transactionList;
+                    GridView1.DataBind();
+                }   
+            //}
 
-            }
-
-            catch (Exception exe)
-            {
-                Label1.Text = Resources.Resource.invalidDetails;
-            }
+            //catch (Exception exe)
+            //{
+            //    Label1.Text = Resources.Resource.invalidDetails;
+            //}
         }
     }
 }

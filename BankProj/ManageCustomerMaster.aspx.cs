@@ -40,8 +40,8 @@ public partial class _ManageCustomerMaster : System.Web.UI.Page
                 if (clist.Count == 0)
                 {
                     Label2.Text = Resources.Resource.noCustomersMessage;
-                    result.DataSource = sc.getSpecificCustomer(int.Parse(custId.Text));
-                    result.DataBind();
+                    //result.DataSource = sc.getSpecificCustomer(int.Parse(custId.Text));
+                    //result.DataBind();
                     add.Visible = true;
                     edit.Visible = false;
                     delete.Visible = false;
@@ -49,8 +49,8 @@ public partial class _ManageCustomerMaster : System.Web.UI.Page
                 else
                 {
                     Label2.Text = Resources.Resource.customerFound;
-
-                    result.DataSource = sc.getSpecificCustomer(int.Parse(custId.Text));
+                    //jumbotronDiv.Attributes.Add("style", "margin-top:0px");
+                    result.DataSource = clist;
                     result.DataBind();
                     add.Visible = false;
                     edit.Visible = true;
@@ -85,16 +85,17 @@ public partial class _ManageCustomerMaster : System.Web.UI.Page
     protected void showAllCustomersBtn_Click(object sender, EventArgs e)
     {
         ServiceReference1.Service1Client sc = new ServiceReference1.Service1Client();
-        IList<customer> slist= sc.showAll();
-        if (slist.Count == 0)
+        IList<customer> customersList= sc.showAll();
+        if (customersList.Count == 0)
         {
             Label2.Text = Resources.Resource.noCustomersMessage;
-            result.DataSource = slist;
-            result.DataBind();
+            //result.DataSource = customersList;
+            //result.DataBind();
         }
         else
         {
-            result.DataSource = slist;
+            //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Odisha-City: " + customersList[1].City + "');", true);
+            result.DataSource = customersList;
             result.DataBind();
         }
     }

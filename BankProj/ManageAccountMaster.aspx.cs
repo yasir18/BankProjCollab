@@ -37,7 +37,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
             AmountLabel.Visible = false;
             AmountTextBox.Visible = false;
             DetailsSubmitButton.Visible = false;
-            EditedDetailsSubmitButton.Visible = false;
+            //EditedDetailsSubmitButton.Visible = false;
             DeleteAccountButton.Visible = false;
             AddButton.Visible = false;
             EditButton.Visible = false;
@@ -115,7 +115,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
             AmountLabel.Visible = true;
             AmountTextBox.Visible = true;
             DetailsSubmitButton.Visible = true;
-            EditedDetailsSubmitButton.Visible = false;
+            //EditedDetailsSubmitButton.Visible = false;
             DateOfOpeneningTextBox.Text = DateTime.Today.ToString("dd-MM-yyyy");
             DateOfEditedTextBox.Text = DateTime.Today.ToString("dd-MM-yyyy");
         }
@@ -203,7 +203,7 @@ public partial class _ManageAccountMaster : System.Web.UI.Page
             ClosingDateTextBox.Visible = true;
             AmountLabel.Visible = true;
             AmountTextBox.Visible = true;
-            EditedDetailsSubmitButton.Visible = true;
+            //EditedDetailsSubmitButton.Visible = true;
             DetailsSubmitButton.Visible = false;
 
             ServiceReference1.Service1Client sc = new ServiceReference1.Service1Client();

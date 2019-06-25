@@ -175,7 +175,7 @@
     <value>Customer Updated</value>
   </data>
   <data name="enterCustomerId" xml:space="preserve">
-    <value>Please enter customer Id to add account</value>
+    <value>Please enter customer Id</value>
   </data>
   <data name="greetCustomer" xml:space="preserve">
     <value>Hi, Customer</value>

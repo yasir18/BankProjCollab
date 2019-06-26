@@ -1,6 +1,36 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masterPage.master" AutoEventWireup="true" CodeFile="ManageCustomerMaster.aspx.cs" Inherits="_ManageCustomerMaster" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+     <script type = "text/javascript">
+         $(document).ready(function () {
+             $("#form1").validate({
+                 rules: {   
+                     <%=custId.UniqueID %>:{  
+                        required:true ,
+                        digits:true,
+                        maxlength:20,
+                    }
+                },
+                messages: {    
+                    <%=custId.UniqueID %>:{  
+                        required: "*CUSTOMER ID IS REQUIRED*"  ,
+                        digits: "*ONLY DIGITS ARE ALLOWED*"  ,
+                        maxlength: "*MAX LENGTH IS 20 CHARACTERS ONLY*",
+                    },
+                   
+                },
+                errorClass: "invalid"
+            });
+         });
+        </script>
+    <style>
+        .invalid {
+            color : #d62f48;
+        }
+        input.invalid, textarea.invalid, select.invalid{
+            background-color: #ffdddd;
+        }
+    </style>
     <div class="jumbotron d-inline-block" style=" margin-top: 100px; text-align:center">
         <div class="input-group mb-3">
             <asp:Label ID="Label1" runat="server" Text="Customer ID: " CssClass="input-group-text input-group-append"></asp:Label>

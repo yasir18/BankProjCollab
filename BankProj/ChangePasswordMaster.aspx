@@ -26,31 +26,29 @@
                 messages: {
                     
                     <%=oldPassword.UniqueID %>:{  
-                        required: "* old Password required *"  ,
-                        maxlength: "* max length is 20 chars only *",
+                        required: "*OLD PASSWORD IS REQUIRED*"  ,
+                        maxlength: "*MAX LENGTH IS 20 ONLY*",
                     },
                    <%=newPassword1.UniqueID %>:{  
-                       required: "*  Password required *"  ,
-                       maxlength: "* max length is 20 chars only *",
+                       required: "*PASSWORD IS REQUIRED*"  ,
+                       maxlength: "*MAX LENGTH IS 20 ONLY*",
                    },
                     <%=newPassword2.UniqueID %>:{  
-                        required: "*  Password required *"  ,
-                        maxlength: "* max length is 20 chars only *",
-                        equalto: "* Passwords should match *",
+                        required: "*PASSWORD IS REQUIRED*"  ,
+                        maxlength: "*MAX LENGTH IS 20 ONLY*",
+                        equalto: "*NEW PASSWORD AND CONFIRM PASSWORD DOES NOT MATCH*",
                     },
                 },
-                highlight: function (element) {
-                    $(element).parent().addClass('error')
-                },
-                unhighlight: function (element) {
-                    $(element).parent().removeClass('error')
-                }
+                errorClass: "invalid"
             });
         });
-    </script>
+        </script>
     <style>
-        .error {
-        color: red !important;
+        .invalid {
+            color : #d62f48;
+        }
+        input.invalid, textarea.invalid, select.invalid{
+            background-color: #ffdddd;
         }
     </style>
     

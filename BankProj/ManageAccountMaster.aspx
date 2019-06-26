@@ -18,29 +18,27 @@
                 },
                 messages: {    
                     <%=CustomerIdTextBox.UniqueID %>:{  
-                        required: "*  CustomerId is required *"  ,
-                        digits: "* Only digits are allowed *"  ,
-                        maxlength: "* max length is 20 chars only *",
+                        required: "*CUSTOMER ID IS REQUIRED*"  ,
+                        digits: "*ONLY DIGITS ARE ALLOWED*"  ,
+                        maxlength: "*MAX LENGTH IS 20 CHARACTERS ONLY*",
                     },
                    
                     <%=AmountTextBox.UniqueID %>:{  
-                        required: "*  Amount is required *"  ,
-                        digits: "* Only digits are allowed *"  ,
-                        maxlength: "* max length is 10 chars only *",
+                        required: "*AMOUNT IS REQUIRED*"  ,
+                        digits: "*ONLY DIGITS ARE ALLOWED*"  ,
+                        maxlength: "*MAX LENGTH IS 20 CHARACTERS ONLY*",
                     },
                 },
-                highlight: function (element) {
-                    $(element).parent().addClass('error')
-                },
-                unhighlight: function (element) {
-                    $(element).parent().removeClass('error')
-                }
+                errorClass: "invalid"
             });
          });
-    </script>
+        </script>
     <style>
-        .error {
-        color: red !important;
+        .invalid {
+            color : #d62f48;
+        }
+        input.invalid, textarea.invalid, select.invalid{
+            background-color: #ffdddd;
         }
     </style>
     <script>

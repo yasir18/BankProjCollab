@@ -33,34 +33,29 @@
                 messages: {
                     
                     <%=custName1.UniqueID %>:{  
-                        required: "* Name required *"  ,
-                        maxlength: "* max length is 20 chars only *",
+                        required: "*NAME IS REQUIRED*"  ,
+                        maxlength: "*MAX LENGTH IS 20 CHARACTERS ONLY*",
                     },
                     <%=address.UniqueID %>:{  
-                        required: "* Address required *"  ,
-                        maxlength: "* max length is 60 chars only *",
+                        required: "*ADDRESS IS REQUIRED*"  ,
+                        maxlength: "*MAX LENGTH IS 60 CHARACTERS ONLY*",
                     },
                     <%=pinCode.UniqueID %>:{  
-                        digits: "* Only digits are allowed *"  ,
-                        maxlength: "* max length is 10 chars only *",
+                        digits: "*ONLY DIGITS ARE ALLOWED*"  ,
+                        maxlength: "*MAX LENGTH IS 10 CHARACTERS ONLY*",
                     },
                     <%=phoneNumber.UniqueID %>:{  
-                        digits: "* Only digits are allowed *"  ,
-                        maxlength: "* max length is 10 chars only *",
+                        digits: "*ONLY DIGITS ARE ALLOWED*"  ,
+                        maxlength: "*MAX LENGTH IS 10 CHARACTERS ONLY*",
 
                     },
                     <%=email2.UniqueID %>:{  
-                        required: "* Email required *"  ,
-                        email:"* Enter a valid Email address *",
-                        maxlength: "* max length is 20 chars only *",
+                        required: "*EMAIL IS REQUIRED*"  ,
+                        email:"*PLEASE ENTER A VALID EMAIL*",
+                        maxlength: "*MAX LENGTH IS 20 CHARACTERS ONLY*",
                     },
                 },
-                  highlight: function (element) {
-                      $(element).parent().addClass('error')
-                  },
-                  unhighlight: function (element) {
-                      $(element).parent().removeClass('error')
-                  }
+                  errorClass: "invalid"
               });
           });
           $(function () {
@@ -72,9 +67,12 @@
               });
           });
  </script>
-     <style>
-        .error {
-        color: red !important;
+    <style>
+        .invalid {
+            color : #d62f48;
+        }
+        input.invalid, textarea.invalid, select.invalid{
+            background-color: #ffdddd;
         }
     </style>
      <div class="jumbotron" style="display: inline-block;  margin-top: 100px">

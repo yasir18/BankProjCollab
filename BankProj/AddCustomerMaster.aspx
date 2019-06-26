@@ -53,51 +53,48 @@
                 messages: {
                     
                     <%=custName1.UniqueID %>:{  
-                        required: "* Name required *"  ,
-                        maxlength: "* max length is 20 chars only *",
+                        required: "*NAME REQUIRED*"  ,
+                        maxlength: "*MAX LENGTH IS 20 ONLY*",
                     },
                     <%=address.UniqueID %>:{  
-                        required: "* Address required *"  ,
-                        maxlength: "* max length is 60 chars only *",
+                        required: "*ADDRESS REQUIRED*"  ,
+                        maxlength: "*MAX LENGTH IS 60 ONLY*",
                     },
                     <%=dob.UniqueID %>: {
-                        required: "* Date of birth is required*",
+                        required: "*DATE OF BIRTH IS REQUIRED*",
                     },
                     <%= state.UniqueID %>: {
-                        required : "*State is required"
+                        required : "*STATE IS REQUIRED*"
                     },
                     <%= city.UniqueID %>:{
-                        required : "*City is required"
+                        required : "*CITY IS REQUIRED*"
                     },
                     <%=pinCode.UniqueID %>:{  
-                        required : "*Pincode is required",
-                        digits: "* Only digits are allowed *"  ,
-                        maxlength: "* max length is 10 chars only *",
+                        required : "*PINCODE IS REQUIRED*",
+                        digits: "*ONLY DIGITS ARE ALLOWED*"  ,
+                        maxlength: "*MAX LENGTH IS 10 ONLY*",
                     },
                     <%=phoneNumber.UniqueID %>:{  
-                        digits: "* Only digits are allowed *"  ,
-                        maxlength: "* max length is 10 chars only *",
+                        digits: "*ONLY DIGITS ARE ALLOWED*"  ,
+                        maxlength: "*MAX LENGTH IS 10 ONLY*",
 
                     },
                     <%=email2.UniqueID %>:{  
-                        required: "* Email required *"  ,
-                        email:"* Enter a valid Email address *",
-                        maxlength: "* max length is 20 chars only *",
+                        required: "*EMAIL REQUIRED*"  ,
+                        email:"*PLEASE ENTER A VALID EMAIL*",
+                        maxlength: "*MAX LENGTH IS 20 ONLY*",
                     },
                 },
-                highlight: function (element) {
-                    $(element).parent().addClass('error')
-                },
-                unhighlight: function (element) {
-                    $(element).parent().removeClass('error')
-                }
+                errorClass: "invalid"
             });
         });
-
- </script> 
+        </script>
     <style>
-        .error {
-        color: red !important;
+        .invalid {
+            color : #d62f48;
+        }
+        input.invalid, textarea.invalid, select.invalid{
+            background-color: #ffdddd;
         }
     </style>
     <div class="jumbotron" style="display: inline-block;  margin-top: 100px">

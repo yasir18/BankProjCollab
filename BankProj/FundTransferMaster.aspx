@@ -27,34 +27,32 @@
                 messages: {
                     
                     <%=account1.UniqueID %>:{  
-                        required: "* Source Account  required *"  ,
-                        digits: "* Only digits are allowed *"  ,
-                        maxlength: "* max length is 20 chars only *",
+                        required: "*SOURCE ACCOUNT IS REQUIRED*"  ,
+                        digits: "*ONLY DIGITS ARE ALLOWED*"  ,
+                        maxlength: "*MAX LENGTH IS 20 ONLY*",
                     },
                     <%=account2.UniqueID %>:{  
-                        required: "* Destination Account required *"  ,
-                        digits: "* Only digits are allowed *"  ,
-                        maxlength: "* max length is 20 chars only *",
+                        required: "*DESTINATION ACCOUNT IS REQUIRED*"  ,
+                        digits: "*ONLY DIGITS ARE ALLOWED*"  ,
+                        maxlength: "*MAX LENGTH IS 20 ONLY*",
                     },
                     <%=amount.UniqueID %>:{  
-                        required: "*  Amount is required *"  ,
-                        digits: "* Only digits are allowed *"  ,
-                        maxlength: "* max length is 10 chars only *",
+                        required: "*AMOUNT IS REQUIRED*"  ,
+                        digits: "*ONLY DIGITS ARE ALLOWED*"  ,
+                        maxlength: "*MAX LENGTH IS 10 ONLY*",
                     },
                    
                 },
-                highlight: function (element) {
-                    $(element).parent().addClass('error')
-                },
-                unhighlight: function (element) {
-                    $(element).parent().removeClass('error')
-                }
+                errorClass: "invalid"
             });
         });
-    </script>
+        </script>
     <style>
-        .error {
-        color: red !important;
+        .invalid {
+            color : #d62f48;
+        }
+        input.invalid, textarea.invalid, select.invalid{
+            background-color: #ffdddd;
         }
     </style>
  <div class="jumbotron d-inline-block" style=" margin-top: 100px">

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="masterPage.master" AutoEventWireup="true" CodeFile="LoginPageMaster.aspx.cs" Inherits="_LoginPageMaster" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
-    <script>  //src="Scripts/Validations.js">
+    <script>
         $(document).ready(function () {
             $("#form1").validate({
                
@@ -22,29 +22,26 @@
         messages: {
                     
             <%=userId.UniqueID %>:{  
-                required: "* required *"  , 
-                maxlength: "* max length is 20 chars only *",
+                required: "*USER ID REQUIRED*"  , 
+                maxlength: "*MAX LENGTH IS 20 ONLY*",
             },
                     
            <%=password.UniqueID %>:{  
-               required: "* required *"  ,
-
-               maxlength: "* max length is 20 chars only *",
+               required: "*PASSWORD IS REQUIRED*"  ,
+               maxlength: "*MAX LENGTH IS 20 ONLY*",
            },
                    
         },
-        highlight: function (element) {
-            $(element).parent().addClass('error')
-        },
-        unhighlight: function (element) {
-            $(element).parent().removeClass('error')
-        }
-    });
-});
-    </script>
+        errorClass: "invalid"
+        });
+        });
+        </script>
     <style>
-        .error {
-        color: red !important;
+        .invalid {
+            color : #d62f48;
+        }
+        input.invalid, textarea.invalid, select.invalid{
+            background-color: #ffdddd;
         }
     </style>
     <div class="jumbotron" style="display: inline-block; margin-top: 100px">
@@ -60,7 +57,7 @@
         <div>
             <asp:Button ID="login" runat="server" OnClick="login_Click" Text="Login" CssClass="btn btn-outline-success"/>
         </div>
-        <div  class="alert alert-danger alert-dismissable" aria-hidden="true">
+        <div class="alert alert-danger alert-dismissible fade show" aria-hidden="true" id="labelDiv" runat="server" visible="false" role="alert">
             <asp:Label ID="Label4" runat="server"  Visible="false"></asp:Label>
         </div>
     </div>

@@ -34,24 +34,22 @@
                 messages: {
                     
                     <%=TextBox1.UniqueID %>:{  
-                        required: "*  Account Number required *"  ,
-                        digits: "* Only digits are allowed *"  ,
-                        maxlength: "* max length is 20 chars only *",
+                        required: "*ACCOUNT NUMBER REQUIRED*"  ,
+                        digits: "*ONLY DIGITS ARE ALLOWED*"  ,
+                        maxlength: "*MAX LENGTH IS 20*",
                     },
                    
                 },
-                highlight: function (element) {
-                    $(element).parent().addClass('error')
-                },
-                unhighlight: function (element) {
-                    $(element).parent().removeClass('error')
-                }
+                errorClass: "invalid"
             });
         });
-    </script>
+        </script>
     <style>
-        .error {
-        color: red !important;
+        .invalid {
+            color : #d62f48;
+        }
+        input.invalid, textarea.invalid, select.invalid{
+            background-color: #ffdddd;
         }
     </style>
     <div class="jumbotron d-inline-block" style=" margin-top: 100px">

@@ -41,6 +41,7 @@ public partial class _LoginPageMaster : System.Web.UI.Page
         }
         else
         {
+            labelDiv.Visible = true;
             Label4.Visible = true;
             Label4.Text = result;
         }
